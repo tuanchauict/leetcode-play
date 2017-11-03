@@ -9,14 +9,15 @@ class Solution:
         t0 = time.time()
         ma = max(nums)
         mi = min(nums)
+        print(mi, ma)
         print(time.time() - t0)
         t1 = time.time()
         pivot = (ma + mi) >> 1
         # print(pivot)
         count = 0
-        for i in range(len(nums) - 1):
+        for i in range(len(nums) - 1, -1, -1):
             n = nums[i]
-            # print('n', n, n >= pivot)
+            print('n', i, n, n >= pivot)
             if n < pivot:
                 continue
             for j in range(i, len(nums)):
@@ -31,7 +32,7 @@ class Solution:
 nums = [1, 3, 2, 3, 1]
 nums = [2,4,3,5,1]
 import random
-nums = [random.randint(0, 2**32) for i in range(5000)]
+nums = [random.randint(0, 2**8) for i in range(1000)]
 sol = Solution()
 number = sol.reversePairs(nums)
 print(number)
